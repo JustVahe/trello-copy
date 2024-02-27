@@ -1,3 +1,4 @@
+import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import useDone from "../handlers/DoneFetch";
 import AddButton from "./AddButton";
 import TaskItem from "./TaskItem";
@@ -16,9 +17,11 @@ const Done = () => {
             {
                 !done || done.length === 0 ? (
                     <p className="text-cyan-50 text-3xl font-bold my-2">Please add tasks</p>
-                ) : (
-                    Array.from(done).map((item) => <TaskItem type="done" name={item.taskName} id={item.id} key={v4()}/>)
-                )}
+                ) : 
+                <SortableContext items={Array.from(done)} strategy={verticalListSortingStrategy}>
+                    {Array.from(done).map((item) => (<TaskItem type="todo" key={v4()} name={item.taskName} id={item.id} />))}
+                </SortableContext>
+            }
             <AddButton type="done"/>
         </div>
      );

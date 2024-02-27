@@ -5,6 +5,12 @@
       "taskName": "hgnhgtgfhnghg",
       "status": "done",
       "queue": 0
+    },
+    {
+      "id": "1ebc8359-c39b-4c48-aab0-b23b5a0362c0",
+      "taskName": "dvbbdfvbgffdg",
+      "status": "done",
+      "queue": 0
     }
   ],
   "inProgress": [
@@ -13,6 +19,24 @@
       "taskName": "bnfdvbfdvcbvc",
       "status": "done",
       "queue": 0
+    },
+    {
+      "id": "88e2048e-0d66-494d-abae-4b54ca18e21d",
+      "taskName": "dffgfdsf",
+      "status": "done",
+      "queue": 0
+    },
+    {
+      "id": "4a150857-8155-4111-abe0-aded0defba4a",
+      "taskName": "vdcvdfsf",
+      "status": "done",
+      "queue": 1
+    },
+    {
+      "id": "aeb69a20-0e19-4a59-b5c8-89345bc8c9ad",
+      "taskName": "mhngbfgf",
+      "status": "done",
+      "queue": 2
     }
   ],
   "done": [
@@ -21,6 +45,24 @@
       "taskName": "Cheeze!!",
       "status": "done",
       "queue": 0
+    },
+    {
+      "id": "af57b7ce-36e7-4d7b-95e7-c230e64effcd",
+      "taskName": "gfddfghfd",
+      "status": "done",
+      "queue": 0
+    },
+    {
+      "id": "87f9b926-f6e1-46d1-98e5-64173f8516eb",
+      "taskName": "gffdsfbfgd",
+      "status": "done",
+      "queue": 1
+    },
+    {
+      "id": "b3044bb6-cec0-43a2-b47b-bd1b6ff24752",
+      "taskName": "ngdsdfg",
+      "status": "done",
+      "queue": 2
     }
   ]
 }

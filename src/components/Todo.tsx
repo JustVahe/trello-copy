@@ -3,6 +3,8 @@ import useTodo from "../handlers/TodoFetch";
 import AddButton from "./AddButton";
 import TaskItem from "./TaskItem";
 import { v4 } from "uuid";
+import { useDroppable } from "@dnd-kit/core";
+import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 
 const Todo = () => {
 
@@ -16,10 +18,12 @@ const Todo = () => {
             {
                 !todos || todos.length === 0 ? (
                     <p className="text-cyan-50 text-3xl font-bold my-2">Please add tasks</p>
-                ) : (
-                    Array.from(todos).map((item) => <TaskItem type="todo" key={v4()} name={item.taskName} id={item.id} />)
-                )}
-            <AddButton type="todo"/>
+                ) : 
+                <SortableContext items={Array.from(todos)} strategy={verticalListSortingStrategy}>
+                    {Array.from(todos).map((item) => (<TaskItem type="todo" key={v4()} name={item.taskName} id={item.id} />))}
+                </SortableContext>
+            }
+            <AddButton type="todo"/> 
         </div>
      );
 }

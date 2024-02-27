@@ -3,6 +3,8 @@ import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import useTodo from "../handlers/TodoFetch";
 import useInProgress from "../handlers/InProgressFetch";
 import useDone from "../handlers/DoneFetch";
+import { useSortable } from "@dnd-kit/sortable";
+import {CSS} from "@dnd-kit/utilities"
 
 const TaskItem = ({name, id, type} : {name : string, id : string, type : string}) => {
 
@@ -13,6 +15,13 @@ const TaskItem = ({name, id, type} : {name : string, id : string, type : string}
     const {getTodo,updateTodo,deleteTodo} = useTodo();
     const {getInProgress,updateInProgress, deleteInProgress} = useInProgress();
     const {getDone,updateDone, deleteDone} = useDone();
+
+    const {attributes,listeners,setNodeRef,transform,transition} = useSortable({id});
+
+    const style = {
+        transition,
+        transform: CSS.Transform.toString(transform),
+    }
 
     const handleUpdate = (event : MouseEvent) => {
 
@@ -61,9 +70,10 @@ const TaskItem = ({name, id, type} : {name : string, id : string, type : string}
     }
 
     return ( 
-        <div onMouseOver={() => setEnabled(true)} onMouseOut={() => setEnabled(false)} 
-        className={`w-full my-3 bg-slate-50 bg-opacity-70 backdrop-blur-lg 
-        p-3 rounded-md shadow-sm shadow-slate-300 flex justify-between`}>
+        <div ref={setNodeRef} style={style} onMouseOver={() => setEnabled(true)} onMouseOut={() => setEnabled(false)} 
+            {...attributes} {...listeners}
+            className={`w-full my-3 bg-slate-50 bg-opacity-70 backdrop-blur-lg 
+            p-3 rounded-md shadow-sm shadow-slate-300 flex justify-between`}>
             {
                 update ? 
                     <div className="w-full">

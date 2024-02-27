@@ -3,9 +3,13 @@ import useInProgress from "../handlers/InProgressFetch";
 import AddButton from "./AddButton";
 import TaskItem from "./TaskItem";
 import { v4 } from "uuid";
+import { useDroppable } from "@dnd-kit/core";
+import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+
 const InProgress = () => {
 
     const {inProgressData, getInProgress} = useInProgress();
+
 
     useEffect(() => getInProgress() , []);
 
@@ -15,9 +19,11 @@ const InProgress = () => {
             {
                 !inProgressData || inProgressData.length === 0 ? (
                     <p className="text-cyan-50 text-3xl font-bold my-2">Please add tasks</p>
-                ) : (
-                    Array.from(inProgressData).map((item) => <TaskItem type="inProgress" key={v4()} name={item.taskName} id={item.id} />)
-                )}
+                ) : 
+                <SortableContext items={Array.from(inProgressData)} strategy={verticalListSortingStrategy}>
+                    {Array.from(inProgressData).map((item) => (<TaskItem type="todo" key={v4()} name={item.taskName} id={item.id} />))}
+                </SortableContext>
+            }
             <AddButton type="inProgress"/>
         </div>
      );
