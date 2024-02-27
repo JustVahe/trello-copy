@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-r from-indigo-400 from-10% via-sky-400 via-40% to-cyan-400;
+  }
+}
+
+@layer components {
+  .container{
+    @apply w-4/5 mx-auto;
+  }
+}
