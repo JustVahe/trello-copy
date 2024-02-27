@@ -5,6 +5,7 @@ import useInProgress from "../handlers/InProgressFetch";
 import useDone from "../handlers/DoneFetch";
 import { useSortable } from "@dnd-kit/sortable";
 import {CSS} from "@dnd-kit/utilities"
+import { useDraggable } from "@dnd-kit/core";
 
 const TaskItem = ({name, id, type} : {name : string, id : string, type : string}) => {
 
